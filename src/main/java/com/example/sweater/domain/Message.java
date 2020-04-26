@@ -1,14 +1,22 @@
 package com.example.sweater.domain;
 
-import javax.persistence.*;
+import org.hibernate.validator.constraints.Length;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
+/** A class that cares about user's messages. */
 @Entity
 public class Message {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
 
+    @NotBlank(message = "Fill the message, please")
+    @Length(max = 2048, message = "Message too long (more than 2kB)")
     private String text;
+    @NotBlank(message = "Fill the message, please")
+    @Length(max = 255, message = "Message too long (more than 2kB)")
     private String tag;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -30,36 +38,36 @@ public class Message {
         return author != null ? author.getUsername() : "<none>";
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
     public User getAuthor() {
         return author;
     }
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     public String getFilename() {
