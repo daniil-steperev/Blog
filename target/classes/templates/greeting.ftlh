@@ -1,6 +1,6 @@
-<#import "parts/common.ftlh" as c>
+<#import "parts/common.ftlh" as b>
 
-<@c.page>
+<@b.page>
 <h5>Hello, guest</h5>
 <div>This is a blog site of Stepyrev Daniil and Tetin Ilya</div>
-</@c.page>
+</@b.page>

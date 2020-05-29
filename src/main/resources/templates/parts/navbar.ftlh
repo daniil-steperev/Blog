@@ -2,7 +2,7 @@
 <#import "login.ftlh" as l>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Sweater</a>
+    <a class="navbar-brand" href="/">Springo Blog</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,7 +32,7 @@
             </#if>
         </ul>
 
-        <div class="navbar-text mr-3">${name}</div>
+        <div class="navbar-text mr-3"><#if user??>${name}<#else>Please, login</#if></div>
         <@l.logout />
     </div>
 </nav>
